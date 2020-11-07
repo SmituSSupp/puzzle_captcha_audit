@@ -17,7 +17,7 @@ def render_puzzle(request):
             print(request.POST[piece.key], looper)
             success = True
             if request.POST[piece.key] != str(looper):
-                message = 'You did not solve the puzzle correctly, please try again lad.'
+                message = 'You did not solve the puzzle correctly, please try again lad. aaaaa'
                 success = False
                 break
             looper += 1
