@@ -69,10 +69,10 @@ def log_user_image_click(request):
         #print(request.headers['Cookie'].split('; ')[1])
         ipaddr = request.META.get('REMOTE_ADDR')
         if ipaddr:
-            logger.info(f"click_happend from sess {ipaddr} agent - {request.headers['User-Agent']} "
+            logger.info(f"click from sess {ipaddr} agent - {request.headers['User-Agent']} "
                         f"on item {item_tag}")
         else:
-            logger.info(f"click_happend from sess {request.headers['Host']} agent - "
+            logger.info(f"click from sess {request.headers['Host']} agent - "
                         f"{request.headers['User-Agent']} on item {item_tag}")
 
     except Exception as e:
