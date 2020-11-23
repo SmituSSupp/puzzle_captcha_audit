@@ -1,0 +1,78 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;
+charset=utf-8">
+<script>
+    function forMaksim(){
+        alert("gaga")
+    }
+</script>
+</head>
+<body>
+
+<font size="3" face="Arial">
+
+<form action="" method="post" enctype="text/plain">
+    {% csrf_token %}
+<table widht="50%" border="0">
+<tr valign="top">
+<td>
+ФИО:
+</td>
+<td>
+<input type="text" size="45" name="FNS">
+</td>
+</tr>
+
+<tr>
+<td>Образование:</td>
+<td>
+<select name="Edication">
+<option value="higher_education" selected>Высшее
+<option value="secondary_vocational_education">Среднее профессиональое
+<option value="general_secondary_education">Среднее общее
+<option value="basic_general_education">Основное общее
+<option value="plelusory">Начальное общее
+</td>
+</tr>
+
+<tr>
+<td>Интересующие вакансии:</td>
+<td>
+<input type="checkbox" name="vacancies" value="economist">Экономист<br>
+<input type="checkbox" name="vacancies" value="manager">Менеджер<br>
+<input type="checkbox" name="vacancies" value="designer">Проектировщик<br>
+<input type="checkbox" name="vacancies" value="foreman">Прораб
+</td>
+</tr>
+
+<tr>
+<td>Занятость:</td>
+<td>
+<input type="radio" name="employment" value="full">Полная<br>
+<input type="radio" name="employment" value="fractional">Частичная
+</td>
+</tr>
+
+<tr>
+<td>Дополнительная информация:</td>
+<td>
+<textarea name="more_information" cols="45" rows="5">
+</textarea>
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+<input type="button" value="Отправить" onclick="forMaksim()">
+<br>
+<input type="reset" value="Сброс">
+</td>
+</tr>
+
+</table>
+</form>
+</font>
+
+</body>
+</html>

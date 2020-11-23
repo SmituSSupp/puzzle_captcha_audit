@@ -1,0 +1,117 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;
+charset=utf-8">
+    <script type="text/javascript" src="/media/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/media/jquery.jqueryui.min.js"></script>
+<script>
+    function forMaksim(elem_id){
+        var CSRFtoken = $('input[name=csrfmiddlewaretoken]').val()
+
+                var cookies = document.cookie;
+
+                $.post('/test_captcha/log_user_image_click', {
+                item_text: elem_id,
+                cookies: cookies,
+                csrfmiddlewaretoken:  CSRFtoken
+                });
+    }
+
+    function PageResults(){
+        var CSRFtoken = $('input[name=csrfmiddlewaretoken]').val()
+
+                var cookies = document.cookie;
+
+                let page_res = 'FNS = ' + $("input[name=FNS]").val()
+                page_res += ' Education check box ' +  $("select[name=Education]").val()
+                page_res += ' Vacancies check box '
+                $.each($("input[name='vacancies']:checked"), function() {
+                    page_res += $(this).val() + ' ';
+                })
+                page_res += ' Employed radio btn ' +  $("input[name=employment]:checked").val()
+                page_res += ' Additional info ' + $("textarea[name=more_information]").val()
+
+                $.post('/test_captcha/log_index_input', {
+                item_text: page_res,
+                cookies: cookies,
+                csrfmiddlewaretoken:  CSRFtoken
+                });
+    }
+</script>
+</head>
+<body bgcolor="#b55555">
+
+<font size="3" face="Arial">
+
+<form action="" method="post" enctype="text/plain">
+    {% csrf_token %}
+    <font face="Arial" size="2" color="#000000">
+
+<a href="1.jpg" color="red">
+<img src="/media/1.jpg" width="150" align="Top">
+</a>
+<ul type="square">
+<li><a href="https://spacex.com" target="_blank" style="color:white">Сайт</a>
+</ul>
+<table widht="50%" border="0">
+<tr valign="top">
+<td>
+ФИО:
+</td>
+<td>
+<input type="text" size="45" name="FNS">
+</td>
+</tr>
+
+<tr>
+<td>Образование:</td>
+<td>
+<select name="Education" onclick="forMaksim(1)" >
+<option value="higher_education" selected onclick="forMaksim(1)" >Высшее
+<option value="secondary_vocational_education" onclick="forMaksim(1)" >Среднее профессиональое
+<option value="general_secondary_education" onclick="forMaksim(1)" >Среднее общее
+<option value="basic_general_education" onclick="forMaksim(1)" >Основное общее
+<option value="plelusory"  onclick="forMaksim(1)" >Начальное общее
+</td>
+</tr>
+
+<tr>
+<td>Интересующие вакансии:</td>
+<td>
+<input type="checkbox" name="vacancies" value="economist" onclick="forMaksim(2)" >Экономист<br>
+<input type="checkbox" name="vacancies" value="manager" onclick="forMaksim(2)" >Менеджер<br>
+<input type="checkbox" name="vacancies" value="designer" onclick="forMaksim(2)" >Проектировщик<br>
+<input type="checkbox" name="vacancies" value="foreman" onclick="forMaksim(2)" >Прораб
+</td>
+</tr>
+
+<tr>
+<td>Занятость:</td>
+<td>
+<input type="radio" name="employment" value="full" onclick="forMaksim(3)" >Полная<br>
+<input type="radio" name="employment" value="fractional" onclick="forMaksim(3)" >Частичная
+</td>
+</tr>
+
+<tr>
+<td>Дополнительная информация:</td>
+<td>
+<textarea name="more_information" cols="45" rows="5">
+</textarea>
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+<input type="button" value="Отправить" onclick="forMaksim(3); PageResults(); window.location.href='captcha';" >
+<br>
+<input type="reset" value="Сброс" onclick="forMaksim(3)">
+</td>
+</tr>
+
+</table>
+</form>
+</font>
+
+</body>
+</html>

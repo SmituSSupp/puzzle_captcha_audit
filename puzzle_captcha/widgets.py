@@ -86,7 +86,7 @@ $(document).ready(function() {
                 updatePieceOrder();
                 updatePuzzleOutput();
                 $.post('/test_captcha/log_user_image_click', {
-                item_text: 'test',
+                item_text: '9',
                 cookies: cookies,
                 csrfmiddlewaretoken:  CSRFtoken
                 });
@@ -115,7 +115,7 @@ $(document).ready(function() {
 %(fields)s
 </ul>
 <input type="hidden" name="%(name)s" id="puzzle_captcha_output" />
-<input type="hidden" id="bot_trap" type="text" name="bot_trap" value="{{ 'bot_trap' }}"/>
+<input type="hidden" id="bot_trap" type="text" name="bot_trap" value="bot_trap"/>
         """ % args
 
         return mark_safe(raw_html)

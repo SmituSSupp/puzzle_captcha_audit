@@ -21,7 +21,7 @@ def render_puzzle(request):
                 success = False
                 break
             looper += 1
-        print(f"{request.POST.get('bot_trap',)}")
+        print(f" CHECK VAL  PLS {request.POST.get('bot_trap',)}")
         if request.POST.get('bot_trap',) != 'bot_trap':
             message = 'GO AWAY LITTLE BOT'
             success = False
