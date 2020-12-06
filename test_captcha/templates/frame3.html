@@ -37,6 +37,7 @@ charset=utf-8">
                 csrfmiddlewaretoken:  CSRFtoken
                 });
     }
+
 </script>
 </head>
 <body bgcolor="#b55555">
@@ -59,7 +60,7 @@ charset=utf-8">
 ФИО:
 </td>
 <td>
-<input type="text" size="45" name="FNS">
+    <input type="text" size="45" name="FNS" onfocusin="forMaksim(100)">
 </td>
 </tr>
 
@@ -96,7 +97,7 @@ charset=utf-8">
 <tr>
 <td>Дополнительная информация:</td>
 <td>
-<textarea name="more_information" cols="45" rows="5">
+<textarea name="more_information" cols="45" rows="5" onfocusin="forMaksim(100)">
 </textarea>
 </td>
 </tr>
